@@ -35,6 +35,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.own.bogdanpremium.Strings
 import com.own.bogdanpremium.ui.PrimaryButton
 
 /**
@@ -84,7 +85,7 @@ fun SubscribeScreen() {
             Spacer(Modifier.height(20.dp))
 
             Text(
-                text = "Dziękuję, że tu dotarłaś!",
+                text = Strings.Subscribe.title,
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold,
                 color = scheme.onSurface,
@@ -95,16 +96,16 @@ fun SubscribeScreen() {
 
             Text(
                 text = buildAnnotatedString {
-                    append("Kliknij przycisk poniżej, żeby oficjalnie zasubskrybować ")
+                    append(Strings.Subscribe.subtitlePrefix)
                     withStyle(
                         SpanStyle(
                             fontWeight = FontWeight.Bold,
                             color = scheme.primary,
                         ),
                     ) {
-                        append("Bogdan Premium")
+                        append(Strings.Subscribe.brand)
                     }
-                    append(".")
+                    append(Strings.Subscribe.subtitleSuffix)
                 },
                 style = MaterialTheme.typography.bodyLarge,
                 color = scheme.onSurfaceVariant,
@@ -114,14 +115,14 @@ fun SubscribeScreen() {
             Spacer(Modifier.height(32.dp))
 
             PrimaryButton(
-                text = if (subscribed) "Zasubskrybowano 💅" else "Subskrybuj ✨",
+                text = if (subscribed) Strings.Subscribe.ctaSubscribed else Strings.Subscribe.cta,
                 onClick = { subscribed = true },
                 enabled = !subscribed,
             )
 
             AnimatedVisibility(visible = subscribed) {
                 Text(
-                    text = "(zwrotów brak)",
+                    text = Strings.Subscribe.noRefunds,
                     style = MaterialTheme.typography.labelSmall,
                     color = scheme.onSurfaceVariant.copy(alpha = 0.7f),
                     modifier = Modifier.padding(top = 8.dp),
@@ -159,8 +160,7 @@ private fun SarcasticCallout() {
             .padding(20.dp),
     ) {
         Text(
-            text = "Oczywiście, że zbieram wszystkie dane z Twoich wyborów!!!! " +
-                "Tak łatwo mi nie uciekniesz 😈",
+            text = Strings.Subscribe.callout,
             style = MaterialTheme.typography.bodyMedium,
             fontWeight = FontWeight.Medium,
             color = scheme.onPrimaryContainer,

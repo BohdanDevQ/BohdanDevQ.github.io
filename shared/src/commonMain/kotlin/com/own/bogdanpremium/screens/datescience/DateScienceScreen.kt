@@ -34,6 +34,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.own.bogdanpremium.Strings
 import com.own.bogdanpremium.ui.FunDialog
 import com.own.bogdanpremium.ui.PrimaryButton
 
@@ -65,10 +66,10 @@ fun DateScienceScreen(onNext: () -> Unit) {
 
     if (showSadDialog) {
         FunDialog(
-            title = "💔",
-            message = "auć. dobra, udawajmy, że nie pytałem… (ale to randka, no nie? 🥺)",
+            title = Strings.DateScience.sadDialogTitle,
+            message = Strings.DateScience.sadDialogMessage,
             onDismiss = { showSadDialog = false },
-            confirmText = "no dobra 😅",
+            confirmText = Strings.DateScience.sadDialogConfirm,
         )
     }
 
@@ -134,7 +135,7 @@ private fun IntroSection(
         )
         Spacer(Modifier.height(16.dp))
         Text(
-            text = "Jeśli dobrze rozumiem, nasze dzisiejsze spotkanie to randka? 😊",
+            text = Strings.DateScience.introQuestion,
             style = MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.SemiBold,
             color = MaterialTheme.colorScheme.onSurface,
@@ -146,7 +147,7 @@ private fun IntroSection(
             horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             PrimaryButton(
-                text = "Tak! 🎉",
+                text = Strings.DateScience.yes,
                 onClick = onYes,
                 modifier = Modifier.weight(1f),
             )
@@ -158,7 +159,7 @@ private fun IntroSection(
                 shape = RoundedCornerShape(20.dp),
             ) {
                 Text(
-                    text = "Nie…",
+                    text = Strings.DateScience.no,
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.SemiBold,
                 )
@@ -177,7 +178,7 @@ private fun ChartSection(
         Spacer(Modifier.height(20.dp))
         SectionCard {
             Text(
-                text = "Prognoza kortyzolu na dziś",
+                text = Strings.DateScience.chartTitle,
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.SemiBold,
                 color = MaterialTheme.colorScheme.onSurface,
@@ -187,14 +188,14 @@ private fun ChartSection(
             CortisolChart(animate = animateBars)
             Spacer(Modifier.height(16.dp))
             Text(
-                text = "nauka nie kłamie 🤓",
+                text = Strings.DateScience.chartCaption,
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,
             )
             Spacer(Modifier.height(20.dp))
             PrimaryButton(
-                text = "Czego się spodziewać →",
+                text = Strings.DateScience.whatToExpect,
                 onClick = onContinue,
                 modifier = Modifier.fillMaxWidth(),
             )
@@ -209,7 +210,7 @@ private fun WheelSection(onNext: () -> Unit) {
         Spacer(Modifier.height(20.dp))
         SectionCard {
             Text(
-                text = "Czego się spodziewać po dzisiaj",
+                text = Strings.DateScience.wheelTitle,
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.SemiBold,
                 color = MaterialTheme.colorScheme.onSurface,
@@ -217,18 +218,11 @@ private fun WheelSection(onNext: () -> Unit) {
             )
             Spacer(Modifier.height(20.dp))
             FortuneWheel(
-                segments = listOf(
-                    "Zabawa",
-                    "Trochę cringe'u",
-                    "Słodkie momenty",
-                    "Całus",
-                    "Coś z białkiem",
-                    "Kwiaty 🌸",
-                ),
+                segments = Strings.DateScience.wheelSegments,
             )
             Spacer(Modifier.height(24.dp))
             PrimaryButton(
-                text = "Dalej →",
+                text = Strings.DateScience.next,
                 onClick = onNext,
                 modifier = Modifier.fillMaxWidth(),
             )

@@ -36,6 +36,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.own.bogdanpremium.Strings
 import com.own.bogdanpremium.ui.PillBadge
 import com.own.bogdanpremium.ui.PrimaryButton
 
@@ -99,7 +100,7 @@ fun WelcomeScreen(onJumpIn: () -> Unit) {
         ) {
             Spacer(Modifier.weight(1f))
 
-            PillBadge(text = "BOGDAN PREMIUM")
+            PillBadge(text = Strings.Welcome.badge)
 
             Spacer(Modifier.height(32.dp))
 
@@ -116,7 +117,7 @@ fun WelcomeScreen(onJumpIn: () -> Unit) {
             Spacer(Modifier.height(24.dp))
 
             Text(
-                text = "Hey, girl!",
+                text = Strings.Welcome.title,
                 style = MaterialTheme.typography.displaySmall,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onBackground,
@@ -126,16 +127,16 @@ fun WelcomeScreen(onJumpIn: () -> Unit) {
             Spacer(Modifier.height(16.dp))
 
             val subtitle = buildAnnotatedString {
-                append("Zostałaś wybrana jako kandydatka do ")
+                append(Strings.Welcome.subtitlePrefix)
                 withStyle(
                     SpanStyle(
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.primary,
                     ),
                 ) {
-                    append("Bogdan Premium")
+                    append(Strings.Welcome.brand)
                 }
-                append(". Jeśli gotowa, klikaj w przycisk niżej!")
+                append(Strings.Welcome.subtitleSuffix)
             }
             Text(
                 text = subtitle,
@@ -147,7 +148,7 @@ fun WelcomeScreen(onJumpIn: () -> Unit) {
             Spacer(Modifier.height(20.dp))
 
             Text(
-                text = "✨ ekskluzywnie · zostało 1 miejsce ✨",
+                text = Strings.Welcome.tag,
                 style = MaterialTheme.typography.labelMedium,
                 fontWeight = FontWeight.Medium,
                 color = MaterialTheme.colorScheme.secondary,
@@ -169,7 +170,7 @@ fun WelcomeScreen(onJumpIn: () -> Unit) {
                     },
             ) {
                 PrimaryButton(
-                    text = "Wskakuj!",
+                    text = Strings.Welcome.cta,
                     onClick = onJumpIn,
                     modifier = Modifier.fillMaxWidth(),
                 )

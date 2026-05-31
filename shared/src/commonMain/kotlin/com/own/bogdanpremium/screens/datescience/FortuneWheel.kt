@@ -31,6 +31,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.own.bogdanpremium.Strings
 import kotlin.math.min
 
 /**
@@ -106,7 +107,7 @@ fun FortuneWheel(
 
             // Center hub label — sits outside the rotating layer so it stays upright.
             Text(
-                text = "Kręć!",
+                text = Strings.DateScience.wheelSpin,
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Bold,
                 color = Color.White,

@@ -32,17 +32,13 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.own.bogdanpremium.Strings
 import com.own.bogdanpremium.ui.PagerDots
 import com.own.bogdanpremium.ui.PrimaryButton
 import kotlinx.coroutines.launch
 
 /** Reasons shown on page 2; all must be checked to finish the screen. */
-private val reasons = listOf(
-    "Bo zawsze cię rozśmieszam",
-    "Bo nasze rozmowy o 3 nad ranem",
-    "Bo naprawdę cię słucham",
-    "Bo jestem szurnięty w uroczy sposób",
-)
+private val reasons = Strings.Appreciation.reasons
 
 /** Screen 3 — Appreciation. A 2-page horizontal pager: a heartfelt note, then a gated checklist. */
 @OptIn(ExperimentalFoundationApi::class)
@@ -98,15 +94,13 @@ private fun NotePage(onNext: () -> Unit) {
         Text(text = "💬", fontSize = 64.sp)
         Spacer(modifier = Modifier.height(24.dp))
         Text(
-            text = "Sporo ze sobą gadamy. No serio, mega dużo. Nie pamiętam, kiedy " +
-                "ostatnio czułem się z kimś tak głęboko połączony. Jesteś świetną osobą " +
-                "i doceniam każdą wiadomość, którą wymieniamy.",
+            text = Strings.Appreciation.note,
             style = MaterialTheme.typography.bodyLarge,
             textAlign = TextAlign.Center,
             color = MaterialTheme.colorScheme.onBackground,
         )
         Spacer(modifier = Modifier.height(40.dp))
-        PrimaryButton(text = "Dalej →", onClick = onNext)
+        PrimaryButton(text = Strings.Appreciation.next, onClick = onNext)
     }
 }
 
@@ -127,7 +121,7 @@ private fun ChecklistPage(
         verticalArrangement = Arrangement.Center,
     ) {
         Text(
-            text = "Jak myślisz, czemu cię lubię?",
+            text = Strings.Appreciation.checklistTitle,
             style = MaterialTheme.typography.headlineSmall,
             textAlign = TextAlign.Center,
             color = MaterialTheme.colorScheme.onBackground,
@@ -144,12 +138,12 @@ private fun ChecklistPage(
         }
 
         Spacer(modifier = Modifier.height(20.dp))
-        PrimaryButton(text = "Dalej →", onClick = onFinished, enabled = allChecked)
+        PrimaryButton(text = Strings.Appreciation.next, onClick = onFinished, enabled = allChecked)
 
         if (!allChecked) {
             Spacer(modifier = Modifier.height(12.dp))
             Text(
-                text = "zaznacz wszystkie, napracowałem się nad nimi 😤",
+                text = Strings.Appreciation.checklistHelper,
                 style = MaterialTheme.typography.bodySmall,
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,

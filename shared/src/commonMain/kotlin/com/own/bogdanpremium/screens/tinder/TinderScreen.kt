@@ -42,6 +42,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.own.bogdanpremium.Strings
 import com.own.bogdanpremium.ui.FunDialog
 import kotlin.math.abs
 import kotlin.math.roundToInt
@@ -54,14 +55,7 @@ private val LikeGreen = Color(0xFF3DDC84)
 private const val SwipeThreshold = 150f
 
 /** Bio lines for the playful Gen-Z "About" section. Cringe but sweet (po polsku). */
-private val aboutLines = listOf(
-    "🎯 Szukam: mojej osoby (czyli ciebie)",
-    "🚩→💚 zamieniłem swoje czerwone flagi na zielone",
-    "☕ na bank zaproponuję kawę, a potem pogadamy 4 godziny",
-    "👨‍💻 płynnie po kotlinie, słabiej w uczuciach (pracuję nad tym)",
-    "📏 183 cm (apki kłamią, ja jestem szczery)",
-    "🍝 robię jedno (1) danie z makaronu, ale robię je z pełną pewnością siebie",
-)
+private val aboutLines = Strings.Tinder.aboutLines
 
 /**
  * Screen 5 — a fancy Tinder-style mock for Bogdan. A draggable profile card sits up
@@ -89,7 +83,7 @@ fun TinderScreen(onLiked: () -> Unit) {
 
     if (showNopeDialog) {
         FunDialog(
-            message = "😢 Na pewno??????",
+            message = Strings.Tinder.nopeDialog,
             onDismiss = {
                 showNopeDialog = false
                 resetCard()
@@ -155,7 +149,7 @@ fun TinderScreen(onLiked: () -> Unit) {
 
                 // Fading gesture stamps, opacity tied to drag distance.
                 Stamp(
-                    text = "LIKE",
+                    text = Strings.Tinder.stampLike,
                     color = LikeGreen,
                     alpha = (dragX / SwipeThreshold).coerceIn(0f, 1f),
                     modifier = Modifier
@@ -164,7 +158,7 @@ fun TinderScreen(onLiked: () -> Unit) {
                         .graphicsLayer { rotationZ = -18f },
                 )
                 Stamp(
-                    text = "NOPE",
+                    text = Strings.Tinder.stampNope,
                     color = MaterialTheme.colorScheme.error,
                     alpha = (-dragX / SwipeThreshold).coerceIn(0f, 1f),
                     modifier = Modifier
@@ -173,7 +167,7 @@ fun TinderScreen(onLiked: () -> Unit) {
                         .graphicsLayer { rotationZ = 18f },
                 )
                 Stamp(
-                    text = "SUPER LIKE",
+                    text = Strings.Tinder.stampSuper,
                     color = MaterialTheme.colorScheme.primary,
                     alpha = (-dragY / SwipeThreshold).coerceIn(0f, 1f),
                     modifier = Modifier
@@ -192,7 +186,7 @@ fun TinderScreen(onLiked: () -> Unit) {
                     .verticalScroll(rememberScrollState()),
             ) {
                 Text(
-                    text = "O mnie",
+                    text = Strings.Tinder.aboutTitle,
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSurface,
@@ -235,7 +229,7 @@ fun TinderScreen(onLiked: () -> Unit) {
             Spacer(modifier = Modifier.height(10.dp))
 
             Text(
-                text = "← nie · ★ super lajk · ♥ tak →",
+                text = Strings.Tinder.hint,
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.fillMaxWidth(),

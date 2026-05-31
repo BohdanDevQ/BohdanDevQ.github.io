@@ -36,6 +36,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.own.bogdanpremium.Strings
 
 /**
  * A tiny, playful "cortisol forecast" bar chart for the date science screen.
@@ -126,8 +127,8 @@ fun CortisolChart(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly,
         ) {
-            BarLabel(text = "Przed randką 😰")
-            BarLabel(text = "W trakcie 😌")
+            BarLabel(text = Strings.DateScience.chartBarBefore)
+            BarLabel(text = Strings.DateScience.chartBarDuring)
         }
     }
 }

@@ -2,6 +2,7 @@ package com.own.bogdanpremium.ui
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import com.own.bogdanpremium.Strings
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -17,7 +18,7 @@ fun StepIndicator(
     modifier: Modifier = Modifier,
 ) {
     Text(
-        text = "KROK $current Z $total",
+        text = Strings.Common.step(current, total),
         modifier = modifier,
         style = MaterialTheme.typography.labelMedium,
         fontWeight = FontWeight.Bold,

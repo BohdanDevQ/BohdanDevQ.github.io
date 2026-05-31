@@ -25,6 +25,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.own.bogdanpremium.Strings
 import com.own.bogdanpremium.ui.PrimaryButton
 
 /**
@@ -53,14 +54,14 @@ fun SurpriseVideoScreen(onNext: () -> Unit) {
         Spacer(Modifier.height(24.dp))
 
         Text(
-            text = "Mały drobiazg, który dla Ciebie zrobiłem 🎬",
+            text = Strings.SurpriseVideo.title,
             style = MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
         )
         Spacer(Modifier.height(8.dp))
         Text(
-            text = "Bez ciśnienia. Po prostu robię z siebie idiotę o 2 w nocy.",
+            text = Strings.SurpriseVideo.subtitle,
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center,
@@ -69,15 +70,15 @@ fun SurpriseVideoScreen(onNext: () -> Unit) {
         Spacer(Modifier.height(24.dp))
 
         DownloadCard(
-            title = "Akrowypady zdjęcia",
-            subtitle = "Kliknij, aby pobrać · Drive",
+            title = Strings.SurpriseVideo.downloadTitle,
+            subtitle = Strings.SurpriseVideo.downloadSubtitle,
             onDownload = { /* TODO: open the Drive link via a platform URL opener */ },
         )
 
         Spacer(Modifier.height(32.dp))
 
         PrimaryButton(
-            text = "Dalej →",
+            text = Strings.SurpriseVideo.next,
             onClick = onNext,
             modifier = Modifier.fillMaxWidth(),
         )

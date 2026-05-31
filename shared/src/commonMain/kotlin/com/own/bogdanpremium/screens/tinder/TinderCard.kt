@@ -17,6 +17,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.own.bogdanpremium.Strings
 
 /**
  * The visual content of a Tinder-style profile card: a gradient "photo"
@@ -76,13 +77,13 @@ fun TinderCard(modifier: Modifier = Modifier) {
                     .padding(20.dp),
             ) {
                 Text(
-                    text = "Bogdan, 25",
+                    text = Strings.Tinder.name,
                     style = MaterialTheme.typography.headlineSmall,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onPrimary,
                 )
                 Text(
-                    text = "Programista · 2 km stąd",
+                    text = Strings.Tinder.tagline,
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.85f),
                 )

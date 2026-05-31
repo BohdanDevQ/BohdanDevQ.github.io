@@ -46,7 +46,9 @@ import com.own.bogdanpremium.ui.emojiAware
 @Composable
 fun AppreciationScreen(onFinished: () -> Unit) {
     val pagerState = rememberPagerState(pageCount = { 2 })
-    val checks = remember { mutableStateListOf(false, false, false, false) }
+    val checks = remember {
+        mutableStateListOf(*Array(Strings.Appreciation.reasons.size) { false })
+    }
 
     // Advance to page 2 via an effect (robust across platforms incl. web).
     var goToChecklist by remember { mutableStateOf(false) }

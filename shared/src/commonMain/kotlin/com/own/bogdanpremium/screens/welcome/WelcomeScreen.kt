@@ -149,7 +149,7 @@ fun WelcomeScreen(onJumpIn: () -> Unit) {
             Spacer(Modifier.height(20.dp))
 
             Text(
-                text = Strings.Welcome.tag,
+                text = emojiAware(Strings.Welcome.tag),
                 style = MaterialTheme.typography.labelMedium,
                 fontWeight = FontWeight.Medium,
                 color = MaterialTheme.colorScheme.secondary,

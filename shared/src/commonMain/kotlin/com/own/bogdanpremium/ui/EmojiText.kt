@@ -42,5 +42,11 @@ private fun isEmojiChar(c: Char): Boolean {
     return code in 0xD800..0xDFFF || // surrogate halves (astral-plane emoji)
         code == 0x200D || // zero-width joiner (👨‍💻 etc.)
         code in 0xFE00..0xFE0F || // variation selectors
-        code == 0x20E3 // combining enclosing keycap
+        code == 0x20E3 || // combining enclosing keycap
+        // Common BMP emoji blocks (✨ ☕ etc.). Arrows (0x2190..0x21FF) are intentionally
+        // excluded so "→" keeps rendering in the normal text font.
+        code in 0x2300..0x23FF || // misc technical (⏰ ⌛ …)
+        code in 0x2600..0x26FF || // misc symbols (☕ ☀ …)
+        code in 0x2700..0x27BF || // dingbats (✨ ✂ …)
+        code in 0x2B00..0x2BFF // misc symbols & arrows (⭐ …)
 }

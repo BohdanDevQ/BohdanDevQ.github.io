@@ -43,11 +43,11 @@ object Strings {
             "Sporo ze sobą gadamy. No serio, mega dużo. Nie pamiętam, kiedy ostatnio " +
                 "czułem się z kimś tak deeply connected. Jesteś świetną osobą i doceniam " +
                 "każdy raz, jak z tobą piszemy."
-        const val next = "Dalej →"
+        const val next = "Dalej ➡️"
         const val checklistTitle = "Jak myślisz, why u"
         val reasons = listOf(
             "Bo lubisz dark fantasy horny ass sh",
-            "Bo wpierdalasz tak więcej białka ode mnie",
+            "Bo wpierdalasz więcej białka ode mnie",
             "Jesteś odklejona!!!",
             "Masz polski b2+",
             "Dajesz dużo motywacji",
@@ -63,7 +63,7 @@ object Strings {
         const val subtitle = "No pressure. Po prostu mam upośledzenie w nocy."
         const val downloadTitle = "Akrowypad zdjęcia"
         const val downloadSubtitle = "Kliknij, aby pobrać · Drive"
-        const val next = "Dalej →"
+        const val next = "Dalej ➡️"
     }
 
     object Tinder {
@@ -79,7 +79,7 @@ object Strings {
             "🍝 robię jedno (1) danie z makaronu, ale robię je z miłością i 300g kurczaka",
         )
         const val nopeDialog = "😢 Na pewno??????"
-        const val hint = "← nie · ★ super lajk · ♥ tak →"
+        const val hint = "❌ nie · ⭐ super lajk · 💚 tak"
         // Iconic Tinder stamps — kept in English on purpose.
         const val stampLike = "LIKE"
         const val stampNope = "NOPE"
@@ -91,24 +91,23 @@ object Strings {
         const val yes = "Tak! 🎉"
         const val no = "Nie…"
         const val sadDialogTitle = "💔"
-        const val sadDialogMessage = "aućOk. dobra, udawajmy, że nie pytałem… (ale to randka, no nie? 🥺)"
+        const val sadDialogMessage = "Ok. dobra, udawajmy, że nie pytałem… (ale to randka, no nie? 🥺)"
         const val sadDialogConfirm = "no dobra 😅"
         const val chartTitle = "Cortisol level estimation for today"
         const val chartCaption = "nauka nie kłamie 🤓"
         const val chartBarBefore = "Przed randką 😰"
         const val chartBarDuring = "W trakcie 😌"
-        const val whatToExpect = "Czego się spodziewać →"
+        const val whatToExpect = "Czego się spodziewać ➡️"
         const val wheelTitle = "Czego się spodziewać po dzisiaj"
         const val wheelSpin = "Spin!"
         val wheelSegments = listOf(
             "Fun",
             "Trochę cringe'u",
             "Autistic moments",
-            "A kiss?",
             "Białkowe jedzenie",
             "Mortal kombat (violence kink)",
         )
-        const val next = "Dalej →"
+        const val next = "Dalej ➡️"
     }
 
     object Subscribe {

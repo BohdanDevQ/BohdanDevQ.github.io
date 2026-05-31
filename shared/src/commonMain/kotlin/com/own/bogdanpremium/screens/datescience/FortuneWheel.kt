@@ -50,15 +50,18 @@ import kotlin.math.min
 @Composable
 fun FortuneWheel(
     segments: List<String>,
+    stopAtIndex: Int,
     modifier: Modifier = Modifier,
 ) {
     val wedgeColors = wedgePalette()
     val rotation = remember { Animatable(0f) }
+    val sweepDeg = 360f / segments.size.coerceAtLeast(1)
 
     LaunchedEffect(Unit) {
-        // Spin: 3.5 turns plus an offset, decelerating to a stop.
+        // Rigged spin: several full turns, decelerating so [stopAtIndex] lands under the
+        // top pointer. (The wheel always "happens" to stop on Mortal Kombat. 😈)
         rotation.animateTo(
-            targetValue = 360f * 3.5f + 47f,
+            targetValue = 360f * 4f - sweepDeg * (stopAtIndex + 0.5f),
             animationSpec = tween(durationMillis = 2600, easing = FastOutSlowInEasing),
         )
     }

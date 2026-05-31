@@ -220,6 +220,8 @@ private fun WheelSection(onNext: () -> Unit) {
             Spacer(Modifier.height(20.dp))
             FortuneWheel(
                 segments = Strings.DateScience.wheelSegments,
+                // Rigged to land on the last segment (Mortal Kombat).
+                stopAtIndex = Strings.DateScience.wheelSegments.lastIndex,
             )
             Spacer(Modifier.height(24.dp))
             PrimaryButton(

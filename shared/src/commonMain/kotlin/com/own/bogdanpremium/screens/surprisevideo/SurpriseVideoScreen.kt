@@ -187,7 +187,7 @@ private fun DownloadCard(
                 )
             }
             Text(
-                text = "↓",
+                text = emojiAware("⬇️"),
                 style = MaterialTheme.typography.titleLarge,
                 color = MaterialTheme.colorScheme.primary,
             )

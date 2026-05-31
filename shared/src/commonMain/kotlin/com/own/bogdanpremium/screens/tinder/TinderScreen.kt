@@ -222,15 +222,15 @@ fun TinderScreen(onLiked: () -> Unit) {
                 horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                ActionButton(symbol = "✕", contentColor = MaterialTheme.colorScheme.error, onClick = { triggerNope() })
-                ActionButton(symbol = "★", contentColor = MaterialTheme.colorScheme.primary, onClick = onLiked)
-                ActionButton(symbol = "♥", contentColor = LikeGreen, onClick = onLiked)
+                ActionButton(symbol = "❌", contentColor = MaterialTheme.colorScheme.error, onClick = { triggerNope() })
+                ActionButton(symbol = "⭐", contentColor = MaterialTheme.colorScheme.primary, onClick = onLiked)
+                ActionButton(symbol = "💚", contentColor = LikeGreen, onClick = onLiked)
             }
 
             Spacer(modifier = Modifier.height(10.dp))
 
             Text(
-                text = Strings.Tinder.hint,
+                text = emojiAware(Strings.Tinder.hint),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.fillMaxWidth(),
@@ -283,7 +283,7 @@ private fun ActionButton(
     ) {
         Box(contentAlignment = Alignment.Center) {
             Text(
-                text = symbol,
+                text = emojiAware(symbol),
                 fontSize = 28.sp,
                 fontWeight = FontWeight.Bold,
                 color = contentColor,

@@ -62,7 +62,7 @@ fun NameVerifyScreen(onContinue: () -> Unit) {
             onContinue()
             return
         }
-        if (name.trim().equals(AppConfig.CORRECT_NAME, ignoreCase = true)) {
+        if (AppConfig.ACCEPTED_NAMES.any { name.trim().equals(it, ignoreCase = true) }) {
             onContinue()
         } else {
             remaining -= 1
@@ -158,6 +158,7 @@ fun NameVerifyScreen(onContinue: () -> Unit) {
                 text = Strings.NameVerify.cta,
                 onClick = { onSubmit() },
                 modifier = Modifier.fillMaxWidth(),
+                enabled = name.isNotBlank(),
             )
         }
     }

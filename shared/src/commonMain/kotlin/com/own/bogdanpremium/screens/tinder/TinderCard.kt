@@ -1,5 +1,6 @@
 package com.own.bogdanpremium.screens.tinder
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,9 +16,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import bogdanpremium.shared.generated.resources.Res
+import bogdanpremium.shared.generated.resources.me
 import com.own.bogdanpremium.Strings
+import org.jetbrains.compose.resources.painterResource
 
 /**
  * The visual content of a Tinder-style profile card: a gradient "photo"
@@ -34,26 +39,15 @@ fun TinderCard(modifier: Modifier = Modifier) {
         shadowElevation = 12.dp,
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
-            // "Photo" placeholder — theme gradient with a big developer emoji.
-            Box(
+            // Bogdan's profile photo, cropped to fill the card.
+            Image(
+                painter = painterResource(Res.drawable.me),
+                contentDescription = Strings.Tinder.name,
                 modifier = Modifier
                     .fillMaxSize()
-                    .clip(RoundedCornerShape(24.dp))
-                    .background(
-                        Brush.linearGradient(
-                            colors = listOf(
-                                MaterialTheme.colorScheme.primary,
-                                MaterialTheme.colorScheme.primaryContainer,
-                            ),
-                        ),
-                    ),
-                contentAlignment = Alignment.Center,
-            ) {
-                Text(
-                    text = "🧑‍💻",
-                    style = MaterialTheme.typography.displayLarge,
-                )
-            }
+                    .clip(RoundedCornerShape(24.dp)),
+                contentScale = ContentScale.Crop,
+            )
 
             // Soft scrim + name/tagline pinned to the bottom of the card.
             Box(

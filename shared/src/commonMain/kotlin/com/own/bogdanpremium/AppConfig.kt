@@ -11,6 +11,9 @@ object AppConfig {
      */
     const val CORRECT_NAME = "Zuza"
 
+    /** Any of these (trimmed, case-insensitive) is accepted as the right name. */
+    val ACCEPTED_NAMES = listOf("Zuza", "Zuzanna")
+
     /** Wrong-name tries allowed on Screen 2 before the field is auto-filled. */
     const val MAX_ATTEMPTS = 3
 

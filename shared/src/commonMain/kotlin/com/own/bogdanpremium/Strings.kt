@@ -71,12 +71,12 @@ object Strings {
         const val tagline = "Programista · 99999 km stąd"
         const val aboutTitle = "O mnie"
         val aboutLines = listOf(
-            "🎯 Szukam: mojej osoby ",
-            "🚩→💚 zamieniłem swoje czerwone flagi na zielone",
+            "🎯 Szukam :3 vibes ",
+            "🚩→💚 no red flags",
             "☕ best house husband material (serio, jeszcze masaż umiem robić)",
             "👨‍💻 korposzczur, ale nie siedzę cały czas w domu!!)",
-            "📏 205 cm (apki kłamią, ja jestem szczery)",
-            "🍝 robię jedno (1) danie z makaronu, ale robię je z miłością i 300g kurczaka",
+            "📏 175 cm (apki kłamią, ja jestem szczery)",
+            "🍝 robię jedno (1) danie z makaronu, ale robię je z miłością i 300g klocem kurczaka",
         )
         const val nopeDialog = "😢 Na pewno??????"
         const val hint = "❌ nie · ⭐ super lajk · 💚 tak"

@@ -17,7 +17,7 @@ object Strings {
         // Subtitle is rendered with "Bogdan Premium" bold + colored, so it's in 3 pieces.
         const val subtitlePrefix = "Zostałaś wybrana jako kandydatka do "
         const val brand = "Bogdan Premium"
-        const val subtitleSuffix = ". Jeśli gotowa, klikaj w przycisk niżej!"
+        const val subtitleSuffix = ". If you ready, klikaj w przycisk niżej!"
         const val tag = "✨ ekskluzywnie · zostało 1 miejsce ✨"
         const val cta = "Wskakuj!"
     }
@@ -29,50 +29,54 @@ object Strings {
         const val cta = "Dalej"
         const val dialogTitle = "No jaaasne 🤨"
         const val wrongMessage =
-            "Haha, chciałaś mnie sprawdzić 😂 Serio robię to pierwszy raz w życiu! " +
-                "Robię to w środku nocy przed naszą randką 🌙"
+            "Haha, chciałaś mnie sprawdzić 😂 Fr robię to pierwszy raz w życiu! " +
+                "I kinda robię to w środku nocy przed naszym spotkaniem 🌙"
         // Attempts counter — gets more dramatic as tries run out.
         const val attempts3 = "zostały 3 próby"
         const val attempts2 = "zostały 2, bez stresu 😅"
-        const val attempts1 = "ostatnia próba. to twój villain origin story 💀"
-        const val attemptsAutoFilled = "no dobra, ogarniam cię 🙄 po prostu naciśnij dalej ➡️"
+        const val attempts1 = "ostatnia próba. to twój dark fantasy origin story 💀"
+        const val attemptsAutoFilled = "no dobra, pomogę ci, po prostu naciśnij dalej ➡️"
     }
 
     object Appreciation {
         const val note =
             "Sporo ze sobą gadamy. No serio, mega dużo. Nie pamiętam, kiedy ostatnio " +
-                "czułem się z kimś tak głęboko połączony. Jesteś świetną osobą i doceniam " +
-                "każdą wiadomość, którą wymieniamy."
+                "czułem się z kimś tak deeply connected. Jesteś świetną osobą i doceniam " +
+                "każdy raz, jak z tobą piszemy."
         const val next = "Dalej →"
-        const val checklistTitle = "Jak myślisz, czemu cię lubię?"
+        const val checklistTitle = "Jak myślisz, why u"
         val reasons = listOf(
-            "Bo zawsze cię rozśmieszam",
-            "Bo nasze rozmowy o 3 nad ranem",
-            "Bo naprawdę cię słucham",
-            "Bo jestem szurnięty w uroczy sposób",
+            "Bo lubisz dark fantasy horny ass sh",
+            "Bo wpierdalasz tak więcej białka ode mnie",
+            "Jesteś odklejona!!!",
+            "Masz polski b2+",
+            "Dajesz dużo motywacji",
+            "Bossy !??",
+            "Kinda mamy dużo planów już razem",
+            "Violence kink XD"
         )
-        const val checklistHelper = "zaznacz wszystkie, napracowałem się nad nimi 😤"
+        const val checklistHelper = "zaznacz wszystkie😤"
     }
 
     object SurpriseVideo {
-        const val title = "Mały drobiazg, który dla Ciebie zrobiłem 🎬"
-        const val subtitle = "Bez ciśnienia. Po prostu robię z siebie idiotę o 2 w nocy."
-        const val downloadTitle = "Akrowypady zdjęcia"
+        const val title = "A little thing i did dla Ciebie 🎬"
+        const val subtitle = "No pressure. Po prostu mam upośledzenie w nocy."
+        const val downloadTitle = "Akrowypad zdjęcia"
         const val downloadSubtitle = "Kliknij, aby pobrać · Drive"
         const val next = "Dalej →"
     }
 
     object Tinder {
         const val name = "Bogdan, 25"
-        const val tagline = "Programista · 2 km stąd"
+        const val tagline = "Programista · 99999 km stąd"
         const val aboutTitle = "O mnie"
         val aboutLines = listOf(
-            "🎯 Szukam: mojej osoby (czyli ciebie)",
+            "🎯 Szukam: mojej osoby ",
             "🚩→💚 zamieniłem swoje czerwone flagi na zielone",
-            "☕ na bank zaproponuję kawę, a potem pogadamy 4 godziny",
-            "👨‍💻 płynnie po kotlinie, słabiej w uczuciach (pracuję nad tym)",
-            "📏 183 cm (apki kłamią, ja jestem szczery)",
-            "🍝 robię jedno (1) danie z makaronu, ale robię je z pełną pewnością siebie",
+            "☕ best house husband material (serio, jeszcze masaż umiem robić)",
+            "👨‍💻 korposzczur, ale nie siedzę cały czas w domu!!)",
+            "📏 205 cm (apki kłamią, ja jestem szczery)",
+            "🍝 robię jedno (1) danie z makaronu, ale robię je z miłością i 300g kurczaka",
         )
         const val nopeDialog = "😢 Na pewno??????"
         const val hint = "← nie · ★ super lajk · ♥ tak →"
@@ -87,22 +91,22 @@ object Strings {
         const val yes = "Tak! 🎉"
         const val no = "Nie…"
         const val sadDialogTitle = "💔"
-        const val sadDialogMessage = "auć. dobra, udawajmy, że nie pytałem… (ale to randka, no nie? 🥺)"
+        const val sadDialogMessage = "aućOk. dobra, udawajmy, że nie pytałem… (ale to randka, no nie? 🥺)"
         const val sadDialogConfirm = "no dobra 😅"
-        const val chartTitle = "Prognoza kortyzolu na dziś"
+        const val chartTitle = "Cortisol level estimation for today"
         const val chartCaption = "nauka nie kłamie 🤓"
         const val chartBarBefore = "Przed randką 😰"
         const val chartBarDuring = "W trakcie 😌"
         const val whatToExpect = "Czego się spodziewać →"
         const val wheelTitle = "Czego się spodziewać po dzisiaj"
-        const val wheelSpin = "Kręć!"
+        const val wheelSpin = "Spin!"
         val wheelSegments = listOf(
-            "Zabawa",
+            "Fun",
             "Trochę cringe'u",
-            "Słodkie momenty",
-            "Całus",
-            "Coś z białkiem",
-            "Kwiaty 🌸",
+            "Autistic moments",
+            "A kiss?",
+            "Białkowe jedzenie",
+            "Mortal kombat (violence kink)",
         )
         const val next = "Dalej →"
     }

@@ -21,7 +21,8 @@
       "Bash(security find-identity *)",
       "Bash(git commit -q -m 'Wire iOS code signing to Personal Team \\(QQY98V527Y\\) *)",
       "Bash(./gradlew :shared:compileKotlinIosSimulatorArm64 :androidApp:assembleDebug --console=plain)",
-      "Bash(git commit -q -m 'Step 2: shared UI primitives *)"
+      "Bash(git commit -q -m 'Step 2: shared UI primitives *)",
+      "Bash(git commit -q -m 'Web emoji: swap CBDT NotoColorEmoji for COLR Noto \\(renders on Skiko\\)' -m 'The CBDT bitmap emoji font showed as tofu boxes on the Wasm/Skia canvas. COLRv1 Noto Color Emoji renders as vector color glyphs \\(also ~half the size\\). Same resource filename, no code change. *)"
     ]
   }
 }

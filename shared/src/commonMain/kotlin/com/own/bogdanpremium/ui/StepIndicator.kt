@@ -17,7 +17,7 @@ fun StepIndicator(
     modifier: Modifier = Modifier,
 ) {
     Text(
-        text = "STEP $current OF $total",
+        text = "KROK $current Z $total",
         modifier = modifier,
         style = MaterialTheme.typography.labelMedium,
         fontWeight = FontWeight.Bold,

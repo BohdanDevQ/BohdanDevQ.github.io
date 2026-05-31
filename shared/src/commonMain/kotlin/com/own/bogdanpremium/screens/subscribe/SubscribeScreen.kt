@@ -84,7 +84,7 @@ fun SubscribeScreen() {
             Spacer(Modifier.height(20.dp))
 
             Text(
-                text = "Thank you for getting here!",
+                text = "Dziękuję, że tu dotarłaś!",
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold,
                 color = scheme.onSurface,
@@ -95,7 +95,7 @@ fun SubscribeScreen() {
 
             Text(
                 text = buildAnnotatedString {
-                    append("Click the button below to officially subscribe to ")
+                    append("Kliknij przycisk poniżej, żeby oficjalnie zasubskrybować ")
                     withStyle(
                         SpanStyle(
                             fontWeight = FontWeight.Bold,
@@ -114,14 +114,14 @@ fun SubscribeScreen() {
             Spacer(Modifier.height(32.dp))
 
             PrimaryButton(
-                text = if (subscribed) "Subscribed 💅" else "Subscribe ✨",
+                text = if (subscribed) "Zasubskrybowano 💅" else "Subskrybuj ✨",
                 onClick = { subscribed = true },
                 enabled = !subscribed,
             )
 
             AnimatedVisibility(visible = subscribed) {
                 Text(
-                    text = "(no refunds)",
+                    text = "(zwrotów brak)",
                     style = MaterialTheme.typography.labelSmall,
                     color = scheme.onSurfaceVariant.copy(alpha = 0.7f),
                     modifier = Modifier.padding(top = 8.dp),
@@ -159,8 +159,8 @@ private fun SarcasticCallout() {
             .padding(20.dp),
     ) {
         Text(
-            text = "I absolutely collect all the data from your choices!!!! " +
-                "You won't get away from me that easily 😈",
+            text = "Oczywiście, że zbieram wszystkie dane z Twoich wyborów!!!! " +
+                "Tak łatwo mi nie uciekniesz 😈",
             style = MaterialTheme.typography.bodyMedium,
             fontWeight = FontWeight.Medium,
             color = scheme.onPrimaryContainer,

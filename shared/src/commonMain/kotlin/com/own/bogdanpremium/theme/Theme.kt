@@ -2,6 +2,7 @@ package com.own.bogdanpremium.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
@@ -57,6 +58,35 @@ fun AppTheme(
 ) {
     MaterialTheme(
         colorScheme = if (darkTheme) DarkColors else LightColors,
+        typography = appTypography(),
         content = content,
+    )
+}
+
+/**
+ * Default Material 3 typography, but with every text style switched to [appFontFamily]
+ * when one is supplied (Web, for emoji support). On native it returns the untouched
+ * default typography.
+ */
+@Composable
+private fun appTypography(): Typography {
+    val family = appFontFamily() ?: return Typography()
+    val base = Typography()
+    return base.copy(
+        displayLarge = base.displayLarge.copy(fontFamily = family),
+        displayMedium = base.displayMedium.copy(fontFamily = family),
+        displaySmall = base.displaySmall.copy(fontFamily = family),
+        headlineLarge = base.headlineLarge.copy(fontFamily = family),
+        headlineMedium = base.headlineMedium.copy(fontFamily = family),
+        headlineSmall = base.headlineSmall.copy(fontFamily = family),
+        titleLarge = base.titleLarge.copy(fontFamily = family),
+        titleMedium = base.titleMedium.copy(fontFamily = family),
+        titleSmall = base.titleSmall.copy(fontFamily = family),
+        bodyLarge = base.bodyLarge.copy(fontFamily = family),
+        bodyMedium = base.bodyMedium.copy(fontFamily = family),
+        bodySmall = base.bodySmall.copy(fontFamily = family),
+        labelLarge = base.labelLarge.copy(fontFamily = family),
+        labelMedium = base.labelMedium.copy(fontFamily = family),
+        labelSmall = base.labelSmall.copy(fontFamily = family),
     )
 }

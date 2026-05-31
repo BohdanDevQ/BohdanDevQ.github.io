@@ -38,10 +38,10 @@ import kotlinx.coroutines.launch
 
 /** Reasons shown on page 2; all must be checked to finish the screen. */
 private val reasons = listOf(
-    "Because I always make her laugh",
-    "Because of our 3am conversations",
-    "Because I actually listen",
-    "Because I'm unhinged in a cute way",
+    "Bo zawsze cię rozśmieszam",
+    "Bo nasze rozmowy o 3 nad ranem",
+    "Bo naprawdę cię słucham",
+    "Bo jestem szurnięty w uroczy sposób",
 )
 
 /** Screen 3 — Appreciation. A 2-page horizontal pager: a heartfelt note, then a gated checklist. */
@@ -98,15 +98,15 @@ private fun NotePage(onNext: () -> Unit) {
         Text(text = "💬", fontSize = 64.sp)
         Spacer(modifier = Modifier.height(24.dp))
         Text(
-            text = "We've been talking a lot. I mean, a lot. I don't recall the last " +
-                "time I felt so deeply connected with someone. You're a great person " +
-                "and I appreciate every text we exchange.",
+            text = "Sporo ze sobą gadamy. No serio, mega dużo. Nie pamiętam, kiedy " +
+                "ostatnio czułem się z kimś tak głęboko połączony. Jesteś świetną osobą " +
+                "i doceniam każdą wiadomość, którą wymieniamy.",
             style = MaterialTheme.typography.bodyLarge,
             textAlign = TextAlign.Center,
             color = MaterialTheme.colorScheme.onBackground,
         )
         Spacer(modifier = Modifier.height(40.dp))
-        PrimaryButton(text = "Next →", onClick = onNext)
+        PrimaryButton(text = "Dalej →", onClick = onNext)
     }
 }
 
@@ -127,7 +127,7 @@ private fun ChecklistPage(
         verticalArrangement = Arrangement.Center,
     ) {
         Text(
-            text = "Why do you think I like you?",
+            text = "Jak myślisz, czemu cię lubię?",
             style = MaterialTheme.typography.headlineSmall,
             textAlign = TextAlign.Center,
             color = MaterialTheme.colorScheme.onBackground,
@@ -144,12 +144,12 @@ private fun ChecklistPage(
         }
 
         Spacer(modifier = Modifier.height(20.dp))
-        PrimaryButton(text = "Next →", onClick = onFinished, enabled = allChecked)
+        PrimaryButton(text = "Dalej →", onClick = onFinished, enabled = allChecked)
 
         if (!allChecked) {
             Spacer(modifier = Modifier.height(12.dp))
             Text(
-                text = "check all of them, I worked hard on these 😤",
+                text = "zaznacz wszystkie, napracowałem się nad nimi 😤",
                 style = MaterialTheme.typography.bodySmall,
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,

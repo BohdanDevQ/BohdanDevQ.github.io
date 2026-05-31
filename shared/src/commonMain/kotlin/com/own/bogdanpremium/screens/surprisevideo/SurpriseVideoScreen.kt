@@ -53,14 +53,14 @@ fun SurpriseVideoScreen(onNext: () -> Unit) {
         Spacer(Modifier.height(24.dp))
 
         Text(
-            text = "A little something I made for you 🎬",
+            text = "Mały drobiazg, który dla Ciebie zrobiłem 🎬",
             style = MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
         )
         Spacer(Modifier.height(8.dp))
         Text(
-            text = "No pressure. Just me being an idiot at 2am.",
+            text = "Bez ciśnienia. Po prostu robię z siebie idiotę o 2 w nocy.",
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center,
@@ -70,14 +70,14 @@ fun SurpriseVideoScreen(onNext: () -> Unit) {
 
         DownloadCard(
             title = "Akrowypady zdjęcia",
-            subtitle = "Tap to download · Drive",
+            subtitle = "Kliknij, aby pobrać · Drive",
             onDownload = { /* TODO: open the Drive link via a platform URL opener */ },
         )
 
         Spacer(Modifier.height(32.dp))
 
         PrimaryButton(
-            text = "Next →",
+            text = "Dalej →",
             onClick = onNext,
             modifier = Modifier.fillMaxWidth(),
         )

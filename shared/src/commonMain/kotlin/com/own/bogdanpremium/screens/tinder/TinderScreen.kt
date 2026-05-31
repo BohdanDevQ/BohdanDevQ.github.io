@@ -3,7 +3,6 @@ package com.own.bogdanpremium.screens.tinder
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.VectorConverter
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.Arrangement
@@ -54,46 +53,43 @@ private val LikeGreen = Color(0xFF3DDC84)
 /** Distance in pixels a card must travel before a swipe "commits". */
 private const val SwipeThreshold = 150f
 
-/** Bio lines for the playful Gen-Z "About" section. Cringe but sweet. */
+/** Bio lines for the playful Gen-Z "About" section. Cringe but sweet (po polsku). */
 private val aboutLines = listOf(
-    "🎯 Looking for: my person (you, ideally)",
-    "🚩→💚 turned my red flags into green ones",
-    "☕ will 100% suggest coffee then talk for 4 hours",
-    "👨‍💻 fluent in Kotlin, debatable in feelings (working on it)",
-    "📏 6'0\" (the apps lied, I'm honest)",
-    "🍝 makes one (1) pasta dish, makes it confidently",
+    "🎯 Szukam: mojej osoby (czyli ciebie)",
+    "🚩→💚 zamieniłem swoje czerwone flagi na zielone",
+    "☕ na bank zaproponuję kawę, a potem pogadamy 4 godziny",
+    "👨‍💻 płynnie po kotlinie, słabiej w uczuciach (pracuję nad tym)",
+    "📏 183 cm (apki kłamią, ja jestem szczery)",
+    "🍝 robię jedno (1) danie z makaronu, ale robię je z pełną pewnością siebie",
 )
 
 /**
- * Screen 4 — a fancy Tinder-style mock for Bogdan. A draggable profile card
- * sits up top with real drag gestures, fading LIKE / NOPE / SUPER LIKE stamps,
- * and threshold-based swipe outcomes. Below it scrolls a wholesome bio plus a
- * row of action buttons that mirror the gestures.
+ * Screen 5 — a fancy Tinder-style mock for Bogdan. A draggable profile card sits up
+ * top with real drag gestures, fading LIKE / NOPE / SUPER LIKE stamps, and
+ * threshold-based swipe outcomes. The card lives OUTSIDE the scrolling region so its
+ * drag never fights the page scroll; the bio scrolls independently below it, and the
+ * action buttons stay pinned at the bottom.
  *
- * Swiping right or up (or tapping ♥ / ★) counts as a like and calls [onLiked].
- * Swiping left (or tapping ✕) triggers the playful "Do you mean it??" dialog
- * and springs the card back to center.
+ * Swiping right or up (or tapping ♥ / ★) counts as a like and calls [onLiked]. Swiping
+ * left (or tapping ✕) triggers the playful "Na pewno??" dialog and springs back.
  */
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun TinderScreen(onLiked: () -> Unit) {
     val scope = rememberCoroutineScope()
     val offset = remember { Animatable(Offset.Zero, Offset.VectorConverter) }
     var showNopeDialog by remember { mutableStateOf(false) }
 
-    // Spring the card back to the center, used after a "nope".
     fun resetCard() {
         scope.launch { offset.animateTo(Offset.Zero) }
     }
 
-    // Trigger the same outcome as a left swipe (nope) from a button tap.
     fun triggerNope() {
         showNopeDialog = true
     }
 
     if (showNopeDialog) {
         FunDialog(
-            message = "😢 Do you mean it??????",
+            message = "😢 Na pewno??????",
             onDismiss = {
                 showNopeDialog = false
                 resetCard()
@@ -116,14 +112,13 @@ fun TinderScreen(onLiked: () -> Unit) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .verticalScroll(rememberScrollState())
                 .padding(horizontal = 20.dp, vertical = 24.dp),
         ) {
-            // --- Swipeable card area (fixed height so drag doesn't fight scroll) ---
+            // --- Swipeable card (NOT in a scroll container, so the drag is exclusive) ---
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(440.dp),
+                    .height(420.dp),
             ) {
                 val dragX = offset.value.x
                 val dragY = offset.value.y
@@ -131,9 +126,7 @@ fun TinderScreen(onLiked: () -> Unit) {
                 TinderCard(
                     modifier = Modifier
                         .fillMaxSize()
-                        .offset {
-                            IntOffset(dragX.roundToInt(), dragY.roundToInt())
-                        }
+                        .offset { IntOffset(dragX.roundToInt(), dragY.roundToInt()) }
                         .graphicsLayer {
                             rotationZ = (dragX / 60f).coerceIn(-15f, 15f)
                         }
@@ -161,14 +154,10 @@ fun TinderScreen(onLiked: () -> Unit) {
                 )
 
                 // Fading gesture stamps, opacity tied to drag distance.
-                val likeAlpha = (dragX / SwipeThreshold).coerceIn(0f, 1f)
-                val nopeAlpha = (-dragX / SwipeThreshold).coerceIn(0f, 1f)
-                val superAlpha = (-dragY / SwipeThreshold).coerceIn(0f, 1f)
-
                 Stamp(
                     text = "LIKE",
                     color = LikeGreen,
-                    alpha = likeAlpha,
+                    alpha = (dragX / SwipeThreshold).coerceIn(0f, 1f),
                     modifier = Modifier
                         .align(Alignment.TopStart)
                         .padding(24.dp)
@@ -177,7 +166,7 @@ fun TinderScreen(onLiked: () -> Unit) {
                 Stamp(
                     text = "NOPE",
                     color = MaterialTheme.colorScheme.error,
-                    alpha = nopeAlpha,
+                    alpha = (-dragX / SwipeThreshold).coerceIn(0f, 1f),
                     modifier = Modifier
                         .align(Alignment.TopEnd)
                         .padding(24.dp)
@@ -186,72 +175,67 @@ fun TinderScreen(onLiked: () -> Unit) {
                 Stamp(
                     text = "SUPER LIKE",
                     color = MaterialTheme.colorScheme.primary,
-                    alpha = superAlpha,
+                    alpha = (-dragY / SwipeThreshold).coerceIn(0f, 1f),
                     modifier = Modifier
                         .align(Alignment.BottomCenter)
                         .padding(24.dp),
                 )
             }
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
-            // --- "About" section: wholesome, funny bio lines ---
-            Text(
-                text = "About me",
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onSurface,
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Surface(
-                shape = RoundedCornerShape(20.dp),
-                color = MaterialTheme.colorScheme.surfaceVariant,
-                tonalElevation = 2.dp,
-                modifier = Modifier.fillMaxWidth(),
+            // --- "About" section: scrolls independently in the remaining space ---
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f)
+                    .verticalScroll(rememberScrollState()),
             ) {
-                Column(
-                    modifier = Modifier.padding(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(10.dp),
+                Text(
+                    text = "O mnie",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onSurface,
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                Surface(
+                    shape = RoundedCornerShape(20.dp),
+                    color = MaterialTheme.colorScheme.surfaceVariant,
+                    tonalElevation = 2.dp,
+                    modifier = Modifier.fillMaxWidth(),
                 ) {
-                    aboutLines.forEach { line ->
-                        Text(
-                            text = line,
-                            style = MaterialTheme.typography.bodyLarge,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
+                    Column(
+                        modifier = Modifier.padding(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(10.dp),
+                    ) {
+                        aboutLines.forEach { line ->
+                            Text(
+                                text = line,
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
                     }
                 }
             }
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
-            // --- Action buttons that mirror the swipe gestures ---
+            // --- Action buttons (pinned, mirror the swipe gestures) ---
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                ActionButton(
-                    symbol = "✕",
-                    contentColor = MaterialTheme.colorScheme.error,
-                    onClick = { triggerNope() },
-                )
-                ActionButton(
-                    symbol = "★",
-                    contentColor = MaterialTheme.colorScheme.primary,
-                    onClick = onLiked,
-                )
-                ActionButton(
-                    symbol = "♥",
-                    contentColor = LikeGreen,
-                    onClick = onLiked,
-                )
+                ActionButton(symbol = "✕", contentColor = MaterialTheme.colorScheme.error, onClick = { triggerNope() })
+                ActionButton(symbol = "★", contentColor = MaterialTheme.colorScheme.primary, onClick = onLiked)
+                ActionButton(symbol = "♥", contentColor = LikeGreen, onClick = onLiked)
             }
 
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(10.dp))
 
             Text(
-                text = "← nope · ★ super like · ♥ yes →",
+                text = "← nie · ★ super lajk · ♥ tak →",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.fillMaxWidth(),

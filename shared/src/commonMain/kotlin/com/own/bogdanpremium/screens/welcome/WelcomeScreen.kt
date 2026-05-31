@@ -126,7 +126,7 @@ fun WelcomeScreen(onJumpIn: () -> Unit) {
             Spacer(Modifier.height(16.dp))
 
             val subtitle = buildAnnotatedString {
-                append("You've been selected as a candidate to ")
+                append("Zostałaś wybrana jako kandydatka do ")
                 withStyle(
                     SpanStyle(
                         fontWeight = FontWeight.Bold,
@@ -135,7 +135,7 @@ fun WelcomeScreen(onJumpIn: () -> Unit) {
                 ) {
                     append("Bogdan Premium")
                 }
-                append(". If ready to dive in, click the button below!")
+                append(". Jeśli gotowa, klikaj w przycisk niżej!")
             }
             Text(
                 text = subtitle,
@@ -147,7 +147,7 @@ fun WelcomeScreen(onJumpIn: () -> Unit) {
             Spacer(Modifier.height(20.dp))
 
             Text(
-                text = "✨ exclusive · 1 spot left ✨",
+                text = "✨ ekskluzywnie · zostało 1 miejsce ✨",
                 style = MaterialTheme.typography.labelMedium,
                 fontWeight = FontWeight.Medium,
                 color = MaterialTheme.colorScheme.secondary,
@@ -169,7 +169,7 @@ fun WelcomeScreen(onJumpIn: () -> Unit) {
                     },
             ) {
                 PrimaryButton(
-                    text = "Jump in!",
+                    text = "Wskakuj!",
                     onClick = onJumpIn,
                     modifier = Modifier.fillMaxWidth(),
                 )

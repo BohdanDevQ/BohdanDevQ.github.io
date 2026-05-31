@@ -40,8 +40,8 @@ import com.own.bogdanpremium.ui.StepIndicator
 
 /** The cheeky dialog shown on a wrong guess. */
 private const val WRONG_MESSAGE =
-    "Haha, you wanted to test me 😂 I'm genuinely doing this for the first time! " +
-        "I'm doing it in the middle of the night before our date 🌙"
+    "Haha, chciałaś mnie sprawdzić 😂 Serio robię to pierwszy raz w życiu! " +
+        "Robię to w środku nocy przed naszą randką 🌙"
 
 /**
  * Screen 2 — playful name verification. The user must type [AppConfig.CORRECT_NAME]
@@ -113,7 +113,7 @@ fun NameVerifyScreen(onContinue: () -> Unit) {
             Spacer(Modifier.height(24.dp))
 
             Text(
-                text = "Please provide your name",
+                text = "Podaj proszę swoje imię",
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
@@ -123,7 +123,7 @@ fun NameVerifyScreen(onContinue: () -> Unit) {
             Spacer(Modifier.height(8.dp))
 
             Text(
-                text = "We take identity very seriously at Bogdan Premium.",
+                text = "W Bogdan Premium bardzo poważnie traktujemy tożsamość.",
                 style = MaterialTheme.typography.bodyMedium,
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -135,8 +135,8 @@ fun NameVerifyScreen(onContinue: () -> Unit) {
                 value = name,
                 onValueChange = { name = it },
                 modifier = Modifier.fillMaxWidth(),
-                label = { Text("Type your name…") },
-                placeholder = { Text("Type your name…") },
+                label = { Text("Wpisz swoje imię…") },
+                placeholder = { Text("Wpisz swoje imię…") },
                 singleLine = true,
                 shape = RoundedCornerShape(16.dp),
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
@@ -159,7 +159,7 @@ fun NameVerifyScreen(onContinue: () -> Unit) {
             Spacer(Modifier.height(28.dp))
 
             PrimaryButton(
-                text = "Continue",
+                text = "Dalej",
                 onClick = { onSubmit() },
                 modifier = Modifier.fillMaxWidth(),
             )
@@ -170,15 +170,15 @@ fun NameVerifyScreen(onContinue: () -> Unit) {
         FunDialog(
             message = WRONG_MESSAGE,
             onDismiss = { showDialog = false },
-            title = "Suuure 🤨",
+            title = "No jaaasne 🤨",
         )
     }
 }
 
 /** Attempts copy that gets more dramatically Gen-Z as tries run out. */
 private fun attemptsLabel(remaining: Int): String = when (remaining) {
-    3 -> "3 attempts remaining"
-    2 -> "2 left, no pressure 😅"
-    1 -> "1 attempt. this is your villain origin story 💀"
-    else -> "ok I got you 🙄 just press continue ➡️"
+    3 -> "zostały 3 próby"
+    2 -> "zostały 2, bez stresu 😅"
+    1 -> "ostatnia próba. to twój villain origin story 💀"
+    else -> "no dobra, ogarniam cię 🙄 po prostu naciśnij dalej ➡️"
 }

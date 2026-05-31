@@ -82,7 +82,7 @@ fun TinderCard(modifier: Modifier = Modifier) {
                     color = MaterialTheme.colorScheme.onPrimary,
                 )
                 Text(
-                    text = "Software engineer · 2 km away",
+                    text = "Programista · 2 km stąd",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.85f),
                 )

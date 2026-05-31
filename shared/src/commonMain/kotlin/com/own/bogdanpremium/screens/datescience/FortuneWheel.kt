@@ -106,7 +106,7 @@ fun FortuneWheel(
 
             // Center hub label — sits outside the rotating layer so it stays upright.
             Text(
-                text = "Spin!",
+                text = "Kręć!",
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Bold,
                 color = Color.White,

@@ -66,9 +66,9 @@ fun DateScienceScreen(onNext: () -> Unit) {
     if (showSadDialog) {
         FunDialog(
             title = "💔",
-            message = "ouch. ok pretend I never asked… (but it's a date right? 🥺)",
+            message = "auć. dobra, udawajmy, że nie pytałem… (ale to randka, no nie? 🥺)",
             onDismiss = { showSadDialog = false },
-            confirmText = "ok ok 😅",
+            confirmText = "no dobra 😅",
         )
     }
 
@@ -134,7 +134,7 @@ private fun IntroSection(
         )
         Spacer(Modifier.height(16.dp))
         Text(
-            text = "If I understand correctly, our meeting today is a date? 😊",
+            text = "Jeśli dobrze rozumiem, nasze dzisiejsze spotkanie to randka? 😊",
             style = MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.SemiBold,
             color = MaterialTheme.colorScheme.onSurface,
@@ -146,7 +146,7 @@ private fun IntroSection(
             horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             PrimaryButton(
-                text = "Yes! 🎉",
+                text = "Tak! 🎉",
                 onClick = onYes,
                 modifier = Modifier.weight(1f),
             )
@@ -158,7 +158,7 @@ private fun IntroSection(
                 shape = RoundedCornerShape(20.dp),
             ) {
                 Text(
-                    text = "No…",
+                    text = "Nie…",
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.SemiBold,
                 )
@@ -177,7 +177,7 @@ private fun ChartSection(
         Spacer(Modifier.height(20.dp))
         SectionCard {
             Text(
-                text = "Cortisol forecast for today",
+                text = "Prognoza kortyzolu na dziś",
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.SemiBold,
                 color = MaterialTheme.colorScheme.onSurface,
@@ -187,14 +187,14 @@ private fun ChartSection(
             CortisolChart(animate = animateBars)
             Spacer(Modifier.height(16.dp))
             Text(
-                text = "science doesn't lie 🤓",
+                text = "nauka nie kłamie 🤓",
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,
             )
             Spacer(Modifier.height(20.dp))
             PrimaryButton(
-                text = "What to expect →",
+                text = "Czego się spodziewać →",
                 onClick = onContinue,
                 modifier = Modifier.fillMaxWidth(),
             )
@@ -209,7 +209,7 @@ private fun WheelSection(onNext: () -> Unit) {
         Spacer(Modifier.height(20.dp))
         SectionCard {
             Text(
-                text = "What to expect from today",
+                text = "Czego się spodziewać po dzisiaj",
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.SemiBold,
                 color = MaterialTheme.colorScheme.onSurface,
@@ -218,17 +218,17 @@ private fun WheelSection(onNext: () -> Unit) {
             Spacer(Modifier.height(20.dp))
             FortuneWheel(
                 segments = listOf(
-                    "Fun",
-                    "A bit of cringe",
-                    "Cute moments",
-                    "A kiss",
-                    "Protein food",
-                    "Flowers 🌸",
+                    "Zabawa",
+                    "Trochę cringe'u",
+                    "Słodkie momenty",
+                    "Całus",
+                    "Coś z białkiem",
+                    "Kwiaty 🌸",
                 ),
             )
             Spacer(Modifier.height(24.dp))
             PrimaryButton(
-                text = "Next →",
+                text = "Dalej →",
                 onClick = onNext,
                 modifier = Modifier.fillMaxWidth(),
             )

@@ -23,8 +23,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.own.bogdanpremium.AppConfig
 import com.own.bogdanpremium.Strings
 import com.own.bogdanpremium.ui.PrimaryButton
 
@@ -40,6 +42,7 @@ import com.own.bogdanpremium.ui.PrimaryButton
  */
 @Composable
 fun SurpriseVideoScreen(onNext: () -> Unit) {
+    val uriHandler = LocalUriHandler.current
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -48,7 +51,7 @@ fun SurpriseVideoScreen(onNext: () -> Unit) {
         verticalArrangement = Arrangement.Center,
     ) {
         VideoPreviewCard(
-            onPlay = { /* TODO: wire expect/actual player + video asset */ },
+            onPlay = { uriHandler.openUri(AppConfig.VIDEO_URL) },
         )
 
         Spacer(Modifier.height(24.dp))
@@ -72,7 +75,7 @@ fun SurpriseVideoScreen(onNext: () -> Unit) {
         DownloadCard(
             title = Strings.SurpriseVideo.downloadTitle,
             subtitle = Strings.SurpriseVideo.downloadSubtitle,
-            onDownload = { /* TODO: open the Drive link via a platform URL opener */ },
+            onDownload = { uriHandler.openUri(AppConfig.PHOTOS_URL) },
         )
 
         Spacer(Modifier.height(32.dp))

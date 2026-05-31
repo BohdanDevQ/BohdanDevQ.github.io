@@ -121,7 +121,7 @@ object Strings {
         const val noRefunds = "(zwrotów brak)"
         const val callout =
             "Oczywiście, że zbieram wszystkie dane z Twoich wyborów!!!! " +
-                "Tak łatwo mi nie uciekniesz 😈"
+                "STALKER maxing!"
     }
 
     object Common {

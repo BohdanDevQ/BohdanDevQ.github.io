@@ -37,6 +37,7 @@ import androidx.compose.ui.unit.sp
 import com.own.bogdanpremium.Strings
 import com.own.bogdanpremium.ui.FunDialog
 import com.own.bogdanpremium.ui.PrimaryButton
+import com.own.bogdanpremium.ui.emojiAware
 
 /** Which section of the progressive reveal is currently the furthest unlocked. */
 private enum class Section { INTRO, CHART, WHEEL }
@@ -130,12 +131,12 @@ private fun IntroSection(
 ) {
     SectionCard {
         Text(
-            text = "😊",
+            text = emojiAware("😊"),
             fontSize = 64.sp,
         )
         Spacer(Modifier.height(16.dp))
         Text(
-            text = Strings.DateScience.introQuestion,
+            text = emojiAware(Strings.DateScience.introQuestion),
             style = MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.SemiBold,
             color = MaterialTheme.colorScheme.onSurface,
@@ -188,7 +189,7 @@ private fun ChartSection(
             CortisolChart(animate = animateBars)
             Spacer(Modifier.height(16.dp))
             Text(
-                text = Strings.DateScience.chartCaption,
+                text = emojiAware(Strings.DateScience.chartCaption),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,

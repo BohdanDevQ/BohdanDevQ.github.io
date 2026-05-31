@@ -44,6 +44,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.own.bogdanpremium.Strings
 import com.own.bogdanpremium.ui.FunDialog
+import com.own.bogdanpremium.ui.emojiAware
 import kotlin.math.abs
 import kotlin.math.roundToInt
 import kotlinx.coroutines.launch
@@ -204,7 +205,7 @@ fun TinderScreen(onLiked: () -> Unit) {
                     ) {
                         aboutLines.forEach { line ->
                             Text(
-                                text = line,
+                                text = emojiAware(line),
                                 style = MaterialTheme.typography.bodyLarge,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                             )

@@ -4,13 +4,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.font.FontFamily
 
 /**
- * Font family used for the whole app's typography.
+ * An emoji-capable font family, or null when the platform's system fonts already render
+ * emoji.
  *
- * On **Web** (Kotlin/Wasm) the Skia canvas has no system fonts, so emojis render blank
- * unless we bundle one. The web `actual` returns a family of Noto Sans (Latin text) +
- * Noto Color Emoji (fallback for emoji glyphs). On **Android/iOS** there's nothing to fix —
- * the system fonts already render emoji — so the `actual` returns `null` and the platform
- * default typography is kept (no font bloat in the native apps).
+ * On **Web** (Kotlin/Wasm) the Skia canvas has no emoji font and does NOT fall back across
+ * a FontFamily's font list, so emoji render as empty boxes. The web `actual` returns a
+ * bundled color-emoji family that we apply explicitly to emoji characters (see
+ * `ui/EmojiText.kt`). On **Android/iOS** the system already renders emoji, so this is null.
  */
 @Composable
-expect fun appFontFamily(): FontFamily?
+expect fun emojiFontFamily(): FontFamily?

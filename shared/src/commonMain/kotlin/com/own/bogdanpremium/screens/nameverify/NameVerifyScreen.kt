@@ -36,6 +36,7 @@ import androidx.compose.ui.unit.sp
 import com.own.bogdanpremium.AppConfig
 import com.own.bogdanpremium.Strings
 import com.own.bogdanpremium.ui.FunDialog
+import com.own.bogdanpremium.ui.emojiAware
 import com.own.bogdanpremium.ui.PrimaryButton
 import com.own.bogdanpremium.ui.StepIndicator
 
@@ -98,7 +99,7 @@ fun NameVerifyScreen(onContinue: () -> Unit) {
             Spacer(Modifier.height(32.dp))
 
             Text(
-                text = "🔍",
+                text = emojiAware("🔍"),
                 fontSize = 64.sp,
                 modifier = Modifier.graphicsLayer {
                     scaleX = heroScale
@@ -141,7 +142,7 @@ fun NameVerifyScreen(onContinue: () -> Unit) {
             Spacer(Modifier.height(12.dp))
 
             Text(
-                text = attemptsLabel(remaining),
+                text = emojiAware(attemptsLabel(remaining)),
                 style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.Medium,
                 textAlign = TextAlign.Center,

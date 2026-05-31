@@ -23,10 +23,10 @@ fun FunDialog(
     AlertDialog(
         onDismissRequest = onDismiss,
         shape = RoundedCornerShape(16.dp),
-        title = title?.let { { Text(it, style = MaterialTheme.typography.titleLarge) } },
-        text = { Text(message, style = MaterialTheme.typography.bodyLarge) },
+        title = title?.let { { Text(emojiAware(it), style = MaterialTheme.typography.titleLarge) } },
+        text = { Text(emojiAware(message), style = MaterialTheme.typography.bodyLarge) },
         confirmButton = {
-            TextButton(onClick = onDismiss) { Text(confirmText) }
+            TextButton(onClick = onDismiss) { Text(emojiAware(confirmText)) }
         },
     )
 }

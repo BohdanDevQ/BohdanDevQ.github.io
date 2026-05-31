@@ -37,6 +37,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.own.bogdanpremium.Strings
 import com.own.bogdanpremium.ui.PrimaryButton
+import com.own.bogdanpremium.ui.emojiAware
 
 /**
  * Screen 6 — Subscribe (terminal screen).
@@ -78,7 +79,7 @@ fun SubscribeScreen() {
             verticalArrangement = Arrangement.Center,
         ) {
             Text(
-                text = "🎉",
+                text = emojiAware("🎉"),
                 fontSize = 64.sp,
             )
 
@@ -160,7 +161,7 @@ private fun SarcasticCallout() {
             .padding(20.dp),
     ) {
         Text(
-            text = Strings.Subscribe.callout,
+            text = emojiAware(Strings.Subscribe.callout),
             style = MaterialTheme.typography.bodyMedium,
             fontWeight = FontWeight.Medium,
             color = scheme.onPrimaryContainer,

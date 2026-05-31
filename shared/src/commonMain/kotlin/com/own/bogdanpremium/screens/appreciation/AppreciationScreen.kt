@@ -16,15 +16,19 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -35,18 +39,23 @@ import androidx.compose.ui.unit.sp
 import com.own.bogdanpremium.Strings
 import com.own.bogdanpremium.ui.PagerDots
 import com.own.bogdanpremium.ui.PrimaryButton
-import kotlinx.coroutines.launch
-
-/** Reasons shown on page 2; all must be checked to finish the screen. */
-private val reasons = Strings.Appreciation.reasons
+import com.own.bogdanpremium.ui.emojiAware
 
 /** Screen 3 — Appreciation. A 2-page horizontal pager: a heartfelt note, then a gated checklist. */
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun AppreciationScreen(onFinished: () -> Unit) {
     val pagerState = rememberPagerState(pageCount = { 2 })
-    val scope = rememberCoroutineScope()
     val checks = remember { mutableStateListOf(false, false, false, false) }
+
+    // Advance to page 2 via an effect (robust across platforms incl. web).
+    var goToChecklist by remember { mutableStateOf(false) }
+    LaunchedEffect(goToChecklist) {
+        if (goToChecklist) {
+            pagerState.animateScrollToPage(1)
+            goToChecklist = false
+        }
+    }
 
     Box(
         modifier = Modifier
@@ -60,17 +69,12 @@ fun AppreciationScreen(onFinished: () -> Unit) {
                 ),
             ),
     ) {
-        PagerDots(
-            pageCount = 2,
-            currentPage = pagerState.currentPage,
-            modifier = Modifier
-                .align(Alignment.TopCenter)
-                .padding(top = 24.dp),
-        )
-
-        HorizontalPager(state = pagerState) { page ->
+        HorizontalPager(
+            state = pagerState,
+            modifier = Modifier.fillMaxSize(),
+        ) { page ->
             when (page) {
-                0 -> NotePage(onNext = { scope.launch { pagerState.animateScrollToPage(1) } })
+                0 -> NotePage(onNext = { goToChecklist = true })
                 else -> ChecklistPage(
                     checks = checks,
                     onToggle = { index -> checks[index] = !checks[index] },
@@ -78,6 +82,14 @@ fun AppreciationScreen(onFinished: () -> Unit) {
                 )
             }
         }
+
+        PagerDots(
+            pageCount = 2,
+            currentPage = pagerState.currentPage,
+            modifier = Modifier
+                .align(Alignment.TopCenter)
+                .padding(top = 24.dp),
+        )
     }
 }
 
@@ -87,11 +99,12 @@ private fun NotePage(onNext: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(24.dp),
+            .verticalScroll(rememberScrollState())
+            .padding(horizontal = 24.dp, vertical = 72.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        Text(text = "💬", fontSize = 64.sp)
+        Text(text = emojiAware("💬"), fontSize = 64.sp)
         Spacer(modifier = Modifier.height(24.dp))
         Text(
             text = Strings.Appreciation.note,
@@ -116,7 +129,8 @@ private fun ChecklistPage(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(24.dp),
+            .verticalScroll(rememberScrollState())
+            .padding(horizontal = 24.dp, vertical = 72.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -128,7 +142,7 @@ private fun ChecklistPage(
         )
         Spacer(modifier = Modifier.height(24.dp))
 
-        reasons.forEachIndexed { index, label ->
+        Strings.Appreciation.reasons.forEachIndexed { index, label ->
             ReasonRow(
                 label = label,
                 checked = checks[index],
@@ -143,7 +157,7 @@ private fun ChecklistPage(
         if (!allChecked) {
             Spacer(modifier = Modifier.height(12.dp))
             Text(
-                text = Strings.Appreciation.checklistHelper,
+                text = emojiAware(Strings.Appreciation.checklistHelper),
                 style = MaterialTheme.typography.bodySmall,
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,

@@ -32,6 +32,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.own.bogdanpremium.Strings
+import com.own.bogdanpremium.ui.emojiAware
 import kotlin.math.min
 
 /**
@@ -170,7 +171,7 @@ private fun LegendItem(
                 .background(color),
         )
         Text(
-            text = label,
+            text = emojiAware(label),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurface,
             textAlign = TextAlign.Start,

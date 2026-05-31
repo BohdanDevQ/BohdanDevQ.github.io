@@ -29,7 +29,7 @@ fun PrimaryButton(
         shape = RoundedCornerShape(20.dp),
     ) {
         Text(
-            text = text,
+            text = emojiAware(text),
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.SemiBold,
         )

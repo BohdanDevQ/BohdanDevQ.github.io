@@ -37,6 +37,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.own.bogdanpremium.Strings
+import com.own.bogdanpremium.ui.emojiAware
 
 /**
  * A tiny, playful "cortisol forecast" bar chart for the date science screen.
@@ -170,7 +171,7 @@ private fun BarLabel(text: String) {
         contentAlignment = Alignment.Center,
     ) {
         Text(
-            text = text,
+            text = emojiAware(text),
             style = MaterialTheme.typography.labelLarge,
             fontWeight = FontWeight.Medium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,

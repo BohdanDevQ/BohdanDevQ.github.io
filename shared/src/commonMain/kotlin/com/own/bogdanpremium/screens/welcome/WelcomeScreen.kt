@@ -39,6 +39,7 @@ import androidx.compose.ui.unit.sp
 import com.own.bogdanpremium.Strings
 import com.own.bogdanpremium.ui.PillBadge
 import com.own.bogdanpremium.ui.PrimaryButton
+import com.own.bogdanpremium.ui.emojiAware
 
 /**
  * Screen 1 — Welcome. A fancy, playful landing screen that "selects" the user as
@@ -105,7 +106,7 @@ fun WelcomeScreen(onJumpIn: () -> Unit) {
             Spacer(Modifier.height(32.dp))
 
             Text(
-                text = "👋",
+                text = emojiAware("👋"),
                 fontSize = 72.sp,
                 modifier = Modifier.graphicsLayer {
                     rotationZ = waveAngle

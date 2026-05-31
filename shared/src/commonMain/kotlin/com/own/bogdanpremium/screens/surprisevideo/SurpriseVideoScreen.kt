@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import com.own.bogdanpremium.AppConfig
 import com.own.bogdanpremium.Strings
 import com.own.bogdanpremium.ui.PrimaryButton
+import com.own.bogdanpremium.ui.emojiAware
 
 /**
  * Screen 4 — Surprise video. A little personal video with sound, plus a "download"
@@ -57,7 +58,7 @@ fun SurpriseVideoScreen(onNext: () -> Unit) {
         Spacer(Modifier.height(24.dp))
 
         Text(
-            text = Strings.SurpriseVideo.title,
+            text = emojiAware(Strings.SurpriseVideo.title),
             style = MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
@@ -169,7 +170,7 @@ private fun DownloadCard(
                     .background(MaterialTheme.colorScheme.primaryContainer),
                 contentAlignment = Alignment.Center,
             ) {
-                Text("📷", style = MaterialTheme.typography.titleMedium)
+                Text(emojiAware("📷"), style = MaterialTheme.typography.titleMedium)
             }
             Column(modifier = Modifier.weight(1f)) {
                 Text(

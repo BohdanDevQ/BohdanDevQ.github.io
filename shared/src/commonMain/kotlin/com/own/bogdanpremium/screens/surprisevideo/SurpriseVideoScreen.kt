@@ -30,6 +30,7 @@ import com.own.bogdanpremium.AppConfig
 import com.own.bogdanpremium.Strings
 import com.own.bogdanpremium.ui.PrimaryButton
 import com.own.bogdanpremium.ui.emojiAware
+import com.own.bogdanpremium.video.rememberVideoLauncher
 
 /**
  * Screen 4 — Surprise video. A little personal video with sound, plus a "download"
@@ -44,6 +45,7 @@ import com.own.bogdanpremium.ui.emojiAware
 @Composable
 fun SurpriseVideoScreen(onNext: () -> Unit) {
     val uriHandler = LocalUriHandler.current
+    val playVideo = rememberVideoLauncher(AppConfig.VIDEO_URL)
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -52,7 +54,7 @@ fun SurpriseVideoScreen(onNext: () -> Unit) {
         verticalArrangement = Arrangement.Center,
     ) {
         VideoPreviewCard(
-            onPlay = { uriHandler.openUri(AppConfig.VIDEO_URL) },
+            onPlay = playVideo,
         )
 
         Spacer(Modifier.height(24.dp))

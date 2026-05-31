@@ -17,9 +17,9 @@ object AppConfig {
     /** Wrong-name tries allowed on Screen 2 before the field is auto-filled. */
     const val MAX_ATTEMPTS = 3
 
-    /** Screen 4 — the surprise video (opens in the browser / Drive on tap). */
+    /** Screen 4 — the surprise video (direct MP4; played inline on web). */
     const val VIDEO_URL =
-        "https://drive.google.com/file/d/1NJHIkTZneju5aIDzxuUE3deLzK9I9uiJ/view?usp=sharing"
+        "https://pub-af8ae1ee9a214f5c8677c32f7487912f.r2.dev/video.MP4"
 
     /** Screen 4 — the "Akrowypady zdjęcia" download card opens this Drive photo folder. */
     const val PHOTOS_URL =
